@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Course extends Model
 {
     protected $guarded = [];
     
-    public function resources(Type $var = null)
+    public function resources()
     {
         return $this->hasMany(Resource::class);
     }

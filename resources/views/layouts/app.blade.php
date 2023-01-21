@@ -54,8 +54,9 @@ https://www.tooplate.com/view/2115-marvel
                     </li>
                     @else
                     <li class="nav-item">
-                        <a href="{{route('programme.index')}}" class="nav-link"><span data-hover="Programmes">Programmes</span></a>
+                        <a href="{{route('department.index')}}" class="nav-link"><span data-hover="Department">Department</span></a>
                     </li>
+                    
                     @endif
                     <li class="nav-item">
                         <a href="{{route('logout')}}" onclick="event.preventDefault();

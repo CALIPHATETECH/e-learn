@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Type extends Model
+class Department extends Model
 {
     protected $guarded = [];
     
-    public function resources(Type $var = null)
+    public function programmes()
     {
-        return $this->hasMany(Resource::class);
+       return $this->hasMany(Programme::class);
     }
 }

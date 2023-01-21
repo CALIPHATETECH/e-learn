@@ -26,6 +26,19 @@
                     <x-jet-input id="email" class="form-control" type="email" name="email" :value="old('email')" required />
                 </div>
             </div>
+            <div class="form-group row">
+                <div class="col-md-4">
+                    <x-jet-label for="email" value="{{ __('Programme') }}" />
+                </div>
+                <div class="col-md-8">
+                    <select name="programme" id="" class="form-control">
+                        <option value="">Select Programme</option>
+                        @foreach(App\Models\Programme::all() as $programme)
+                            <option value="{{$programme->id}}">{{$programme->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
 
             <div class="form-group row">
                 <div class="col-md-4">

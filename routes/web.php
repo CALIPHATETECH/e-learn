@@ -22,9 +22,22 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::middleware(['auth:sanctum', 'verified'])
-    ->name('programme.')
-    ->prefix('/programme')
+    ->name('department.')
+    ->prefix('/department')
     ->group(function (){
-        Route::get('/', 'ProgrammeController@index')->name('index');
-        
-});  
+    Route::get('/', 'DepartmentController@index')->name('index');
+    Route::name('resource.')
+    ->prefix('/resource')
+    ->group(function (){
+        Route::get('/{departmentId}', 'ResourceController@index')->name('index');
+        Route::post('/{departmentId}', 'ResourceController@register')->name('register');
+    });
+});
+
+Route::middleware(['auth:sanctum', 'verified'])
+    ->name('student.')
+    ->prefix('/student')
+    ->group(function (){
+        Route::get('/', 'StudentController@index')->name('index');
+        Route::post('/register', 'StudentController@register')->name('register');
+    });

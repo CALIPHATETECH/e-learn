@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Programme;
+use App\Models\Department;
 use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
@@ -16,16 +16,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        return User::create([
+         User::create([
             'name' => 'Admin',
             'email' => 'admin@elearn.com',
             'password' => Hash::make('admin'),
             'role' => 'Admin'
         ]);
         
-        $programmes = ['Higher National Diploma In Computer Science', 'National Diploma In Computer Science'];
-        foreach(programmes as $programme){
-            Programme::create(['name'=>$programme]);
+        $departments = ['Mathematics', 'Statistics'];
+        foreach($departments as $department){
+            Department::create(['name'=>$department]);
         }
        
     }

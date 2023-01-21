@@ -13,4 +13,15 @@ class Programme extends Model
     {
         return $this->hasMany(User::class);
     }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+    
 }
