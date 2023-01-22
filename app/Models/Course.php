@@ -13,4 +13,9 @@ class Course extends Model
     {
         return $this->hasMany(Resource::class);
     }
+
+    public function programme()
+    {
+        return $this->belongsTo(Programme::class);
+    }
 }
