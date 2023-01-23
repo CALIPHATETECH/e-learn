@@ -40,19 +40,9 @@ https://www.tooplate.com/view/2115-marvel
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
-                   @if(Auth::user()->role == 'Student')
-                    <li class="nav-item">
-                        <a href="#about" class="nav-link"><span data-hover="Audios">Audios</span></a>
-                    </li>
+                   @if(Auth::user()->role != 'Student')
                     
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="Videos">Videos</span></a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="#resume" class="nav-link"><span data-hover="PDF">PDF</span></a>
-                    </li>
-                    @else
+                    
                     <li class="nav-item">
                         <a href="{{route('department.index')}}" class="nav-link"><span data-hover="Department">Department</span></a>
                     </li>

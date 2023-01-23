@@ -45,6 +45,13 @@ Route::middleware(['auth:sanctum', 'verified'])
             Route::get('/{courseId}/delete', 'CourseController@delete')->name('delete');
             Route::post('/{programmeId}/register', 'CourseController@register')->name('register');
             Route::post('/{courseId}/update', 'CourseController@update')->name('update');
+            
+            Route::name('resource.')
+            ->prefix('/resource')
+            ->group(function (){
+                Route::get('/{courseId}', 'ResourceController@index')->name('index');
+                Route::post('/{courseId}/register', 'ResourceController@register')->name('register');
+            });
         });
     });
 });
@@ -55,6 +62,5 @@ Route::middleware(['auth:sanctum', 'verified'])
     ->group(function (){
         Route::get('/', 'StudentController@index')->name('index');
         Route::post('/register', 'StudentController@register')->name('register');
-        Route::post('/register', 'StudentController@register')->name('register');
-        Route::post('/register', 'StudentController@register')->name('register');
+        
     });

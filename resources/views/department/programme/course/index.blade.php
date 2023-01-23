@@ -23,7 +23,11 @@
             <td>{{$loop->iteration}}</td>
             <td>{{$course->title ?? ''}}</td>
             <td>{{$course->code ?? ''}}</td>
-            <td>Resources</td>
+            <td>
+            <a href="{{route('department.programme.course.resource.index',[$course->id])}}">
+                {{count($course->resources)}}
+            </a>
+            </td>
             <td><button class="btn btn-success" data-toggle="modal" data-target="#edit_{{$course->id}}">Edit</button>
             <a href="{{route('department.programme.course.delete',[$course->id])}}" onlick="return confirm('Are you sure you to do this ?')">
             <button class="btn btn-success">Delete</button></a></td>

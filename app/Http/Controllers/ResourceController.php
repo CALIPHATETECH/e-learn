@@ -4,27 +4,29 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\Upload\FileUpload;
-use App\Models\Material;
-use App\Models\Programme;
+use App\Models\Course;
+use App\Models\Resource;
 
 class ResourceController extends Controller
 {
     use FileUpload;
 
-    public function register(Request $request, $programmeId)
+    public function register(Request $request, $courseId)
     {
-        $programme = Programme::find($programmeId);
-        $material = Material::firstOrCreate([
+        $course = Course::find($courseId);
+        
+        $resource = $course->resources()->create([
             'title'=>$request->title,
             'type_id'=>$request->type,
-            ]);
-        $this->storeFile($material,'material', $request->material, 'Material/'.$material->type->name.'/');
-        $programme->programmeMaterials()->create(['material_id'=>$material->id]);
-        return redirect()->route('programme.index');
+        ]);
+
+        $this->storeFile($resource,'link', $request->material, 'Resource/'.$course->code.'/'.$resource->type->name.'/');
+    
+        return redirect()->route('department.programme.course.resource.index',[$courseId]);
     }
 
-    public function index($programmeId)
+    public function index($courseId)
     {
-       return view("programme.resource.index",['programme'=>Programme::find($programmeId)]);
+       return view("department.programme.course.resource.index",['course'=>Course::find($courseId)]);
     }
 }

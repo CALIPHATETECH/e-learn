@@ -31,6 +31,8 @@ class CreateResourcesTable extends Migration
             ->on('courses')
             ->delete('restrict')
             ->update('cascade');
+            $table->string('title');
+            $table->string('link')->nullable();
             $table->timestamps();
         });
     }

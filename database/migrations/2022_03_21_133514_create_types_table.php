@@ -18,6 +18,10 @@ class CreateTypesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+        $types = ['Video', 'Audio', 'Material'];
+        foreach ($types as $type) {
+            App\Models\Type::create(['name'=>$type]);
+        }
     }
 
     /**

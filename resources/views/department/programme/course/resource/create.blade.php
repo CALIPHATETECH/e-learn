@@ -1,5 +1,5 @@
 
-<div class="modal fade" id="upload_{{$programme->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="upload_{{$course->id}}" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form enctype="multipart/form-data" action="{{route('programme.resource.register',[$programme->id])}}" method="post">
+                <form enctype="multipart/form-data" action="{{route('department.programme.course.resource.register',[$course->id])}}" method="post">
                     @csrf
                     <div class="form-group row">
                         <div class="col-md-3"><label for="">Choose File</label></div>

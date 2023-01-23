@@ -7,14 +7,25 @@
 
     <div class="row">
     @if(Auth::user()->role == 'Student')
-    <div class="col-md-4 text-center"><h1>{{count(Auth::user()->programme->resources()['videos'])}} Videos</h1></div>
-    <div class="col-md-4 text-center"><h1>{{count(Auth::user()->programme->resources()['audios'])}} Audios</h1></div>
-    <div class="col-md-4 text-center"><h1>{{count(Auth::user()->programme->resources()['pdfs'])}} PDFs</h1></div>
+        @foreach(Auth::user()->programme->courses as $course)
+            <div class="col-md-4 text-center">
+                <a href="#">
+                    <div class="card-body shadow">
+                        <h5>{{$course->code}}</h5>
+                        <h6>{{count($course->videos())}} Videos</h6>
+                        <h6>{{count($course->audios())}} Audios</h6>
+                        <h6>{{count($course->pdfs())}} PDFs</h6>
+                    </div>
+                </a>
+            </div>
+        @endforeach
     @else
         <div class="col-md-4 text-center">
-            <h3 class="text text-success card-body shadow">
-                {{count(App\Models\User::where('role','Student')->get())}} Student
-            </h3>
+            <div class="card-body shadow">
+                <h3 class="text text-success">
+                    {{count(App\Models\User::where('role','Student')->get())}} Student
+                </h3>
+            </div>
         </div>
         <div class="col-md-4 text-center">
             <h3 class="text text-success card-body shadow">

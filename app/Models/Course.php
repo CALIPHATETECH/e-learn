@@ -18,4 +18,37 @@ class Course extends Model
     {
         return $this->belongsTo(Programme::class);
     }
+
+    public function videos()
+    {
+        $videos = [];
+        foreach($this->resources as $resource){
+            if($resource->type->name == 'Video'){
+                $videos[] = $resource;
+            }
+        }
+        return $videos;
+    }
+
+    public function audios()
+    {
+        $audios = [];
+        foreach($this->resources as $resource){
+            if($resource->type->name == 'Audio'){
+                $audios[] = $resource;
+            }
+        }
+        return $audios;
+    }
+
+    public function pdfs()
+    {
+        $pdfs = [];
+        foreach($this->resources as $resource){
+            if($resource->type->name == 'PDF'){
+                $pdfs[] = $resource;
+            }
+        }
+        return $pdfs;
+    }
 }
