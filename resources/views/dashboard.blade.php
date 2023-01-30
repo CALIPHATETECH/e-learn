@@ -9,7 +9,7 @@
     @if(Auth::user()->role == 'Student')
         @foreach(Auth::user()->programme->courses as $course)
             <div class="col-md-4 text-center">
-                <a href="#">
+                <a href="{{route('department.programme.course.resource.index',[$course->id])}}">
                     <div class="card-body shadow">
                         <h5>{{$course->code}}</h5>
                         <h6>{{count($course->videos())}} Videos</h6>

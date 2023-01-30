@@ -29,7 +29,7 @@ https://www.tooplate.com/view/2115-marvel
     <!-- MENU -->
     <nav class="navbar navbar-expand-sm navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="index.html"><i class='uil uil-user'></i> Elearn</a>
+            <a class="navbar-brand" href="{{route('dashboard')}}"><i class='uil uil-user'></i> Elearn</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -41,8 +41,6 @@ https://www.tooplate.com/view/2115-marvel
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                    @if(Auth::user()->role != 'Student')
-                    
-                    
                     <li class="nav-item">
                         <a href="{{route('department.index')}}" class="nav-link"><span data-hover="Department">Department</span></a>
                     </li>
@@ -55,16 +53,6 @@ https://www.tooplate.com/view/2115-marvel
                     <form id="logout-form" method="POST" action="{{ route('logout') }}">
                         @csrf
                     </form>
-                </ul>
-
-                <ul class="navbar-nav ml-lg-auto">
-                    <div class="ml-lg-4">
-                      <div class="color-mode d-lg-flex justify-content-center align-items-center">
-                        <i class="color-mode-icon"></i>
-                        Color mode
-                      </div>
-                    </div>
-                    
                 </ul>
             </div>
         </div>

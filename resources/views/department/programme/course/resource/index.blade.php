@@ -11,7 +11,11 @@
             <th>S/N</th>
             <th>title</th>
             <th>Type</th>
-            <th><button class="btn btn-success" data-toggle="modal" data-target="#upload_{{$course->id}}">New Resource</button></th>
+            <th>
+            @if(Auth::user()->role =='admin')
+            <button class="btn btn-success" data-toggle="modal" data-target="#upload_{{$course->id}}">New Resource</button>
+            @endif
+			</th>
             @include('department.programme.course.resource.create')
             <th></th>
         </tr>
@@ -39,8 +43,10 @@
             @endif
             </td>
             <td>
+            @if(Auth::user()->role == 'admin')
             <button class="btn btn-success">Edit</button>
             <button class="btn btn-success">Delete</button>
+            @endif
             </td>
         </tr>
     @endforeach
