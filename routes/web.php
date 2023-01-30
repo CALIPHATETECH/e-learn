@@ -50,6 +50,7 @@ Route::middleware(['auth:sanctum', 'verified'])
             ->prefix('/resource')
             ->group(function (){
                 Route::get('/{courseId}', 'ResourceController@index')->name('index');
+                Route::get('/{resourceId}/delete', 'ResourceController@delete')->name('delete');
                 Route::post('/{courseId}/register', 'ResourceController@register')->name('register');
             });
         });

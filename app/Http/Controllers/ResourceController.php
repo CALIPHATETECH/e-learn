@@ -29,4 +29,11 @@ class ResourceController extends Controller
     {
        return view("department.programme.course.resource.index",['course'=>Course::find($courseId)]);
     }
+
+    public function delete($resourceId)
+    {
+        $resource = Resource::find($resourceId);
+        $resource->delete();
+        return redirect()->route('department.programme.course.resource.index',[$resource->course->id]);
+    }
 }

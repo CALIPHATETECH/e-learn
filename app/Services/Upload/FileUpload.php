@@ -26,7 +26,7 @@ trait FileUpload
 
     private function fileSystem()
     {
-        return app()->environment('production') ? 's3' : 'public';
+        return 'public';
     }
 
     public function deleteFile()
